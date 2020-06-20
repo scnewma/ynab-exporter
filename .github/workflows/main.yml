@@ -24,3 +24,12 @@ jobs:
 
     - name: Run tests
       run: make test
+
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+
+    - name: Build docker image
+      run: make docker VERSION=$VERSION
+      env:
+        VERSION: ${{ steps.get_version.outputs.VERSION }}
