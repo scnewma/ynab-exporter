@@ -1,0 +1,4 @@
+*.out
+*.test
+ynab-exporter
+.token
