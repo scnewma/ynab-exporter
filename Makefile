@@ -24,7 +24,8 @@ docker-publish:
 	@docker push $(DOCKER_REPO)/$(APP_NAME):$(DOCKER_TAG)
 
 .PHONY: test
-	go test $(PKGS)
+test:
+	go test -v ./...
 
 BINARY := $(APP_NAME)
 BASE_PKG := github.com/scnewma/ynab-exporter
